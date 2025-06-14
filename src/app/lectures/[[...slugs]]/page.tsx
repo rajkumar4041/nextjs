@@ -1,0 +1,22 @@
+import { log } from 'console';
+
+const Lectures = async ({ params }: { params: Promise<{ slugs: string[] }> }) => {
+  const { slugs } = await params;
+  log('Lectures slugs:', slugs);
+
+  if (slugs?.length === 0) {
+    return <div>No lectures found</div>;
+  }
+
+  if (slugs?.length === 1) {
+    return <div>Lecture: {slugs[0]}</div>;
+  }
+
+  if (slugs?.length === 2) {
+    return <div>Lecture: {slugs[1]}</div>;
+  }
+
+  return <div>default Lectures</div>;
+};
+
+export default Lectures;
