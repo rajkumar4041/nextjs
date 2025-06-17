@@ -1,6 +1,10 @@
 const ReviewDetail = async ({ params }: { params: { productId: string; reviewId: string } }) => {
-  const productId = params.productId;
-  const reviewId = params.reviewId;
+  const { productId } = await params;
+  const { reviewId } = await params;
+
+  if (reviewId === '1') {
+    throw new Error('This is a client component, it should not be rendered on the server.');
+  }
 
   return (
     <div>

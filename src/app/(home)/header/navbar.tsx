@@ -10,12 +10,11 @@ const links = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
   { href: '/lectures', label: 'Lectures' },
+  { href: '/products', label: 'Products' },
 ];
 
 const Navbar = () => {
   const pathName = usePathname();
-
-  console.log('Current Path:', pathName, pathName === links[1].href ? 'active' : '');
 
   return (
     // <nav className="navbar nav">
