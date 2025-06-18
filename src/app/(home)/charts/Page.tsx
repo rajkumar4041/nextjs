@@ -1,8 +1,3 @@
-// this will be the page for the charts not wrok yet because there is no default export
-const charts = () => {
-  return <div>charts</div>;
-};
-
 /**
  * this will work because it has a default export
  * export default charts;
