@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
 
+import GlobalErrorWrapper from '../GlobalErrorWrapper';
 import Footer from './footer/Footer';
 import Navbar from './header/navbar';
 
@@ -34,17 +35,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="flex flex-col items-center justify-center h-screen w-full">
-          <div className="flex justify-center items-center h-[7vh] bg-white-500 w-full flex-grow-1">
-            <Navbar />
-          </div>
+        <GlobalErrorWrapper>
+          <div className="flex flex-col items-center justify-center h-screen w-full">
+            <div className="flex justify-center items-center h-[7vh] bg-white-500 w-full flex-grow-1">
+              <Navbar />
+            </div>
 
-          <div className="h-[86vh] p-2">{children}</div>
+            <div className="h-[86vh] p-2">{children}</div>
 
-          <div className="flex justify-center items-center h-[7vh] bg-white-500 w-full flex-grow-1">
-            <Footer />
+            <div className="flex justify-center items-center h-[7vh] bg-white-500 w-full flex-grow-1">
+              <Footer />
+            </div>
           </div>
-        </div>
+        </GlobalErrorWrapper>
       </body>
     </html>
   );

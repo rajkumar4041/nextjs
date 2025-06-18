@@ -1,6 +1,6 @@
 import { log } from 'console';
 
-const ReviewAttachment = async ({ params }: { params: { attachmentId: string } }) => {
+const ReviewAttachment = async ({ params }: { params: Promise<{ attachmentId: string }> }) => {
   const { attachmentId } = await params;
 
   log('ReviewAttachment component rendered with attachmentId:', attachmentId);
