@@ -1,4 +1,6 @@
 async function ProductDetail({ params }: { params: Promise<{ productId: string }> }) {
+  await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a delay
+
   const productId = params.then((e) => {
     if (e.productId === '1') {
       throw new Error('This is a client component, it should not be rendered on the server.');

@@ -14,7 +14,7 @@ const links = [
 ];
 
 const Navbar = () => {
-  const pathName = usePathname();
+  // const pathName = usePathname();
 
   return (
     // <nav className="navbar nav">
