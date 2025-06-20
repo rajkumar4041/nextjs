@@ -1,16 +1,14 @@
 'use client';
 
-const GlobalError = () => {
+export default function GlobalError() {
   return (
-    <html>
+    <html lang="en">
       <body>
-        <title>Global Error</title>
         <div>
-          <button onClick={() => window.location.reload()}>refresh page</button>
+          error occurred in global error component
+          <br />
         </div>
       </body>
     </html>
   );
-};
-
-export default GlobalError;
+}
