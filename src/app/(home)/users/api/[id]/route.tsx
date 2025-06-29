@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import { users } from '@/app/data/users';
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -9,7 +10,12 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
 
   const user = users.find((user) => user.id === parseInt(userId));
 
-  return Response.json(user || { error: 'User not found' }, { status: user ? 200 : 404 });
+  /**
+   * redirect to `GET All-user` page if user is found
+   */
+  if (!user) redirect('/users/api');
+
+  return Response.json(user);
 }
 
 export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
