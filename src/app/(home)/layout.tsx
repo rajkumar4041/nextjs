@@ -41,7 +41,7 @@ export default function RootLayout({
               <Navbar />
             </div>
 
-            <div className="h-[86vh] p-2">{children}</div>
+            <div className="h-[86vh]  p-2">{children}</div>
 
             <div className="flex justify-center items-center h-[7vh] bg-white-500 w-full flex-grow-1">
               <Footer />
