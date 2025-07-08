@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import UserSearchInput from './UserSearchInput';
 
 /**
  * this metadata is only for this about page & it will override the global metadata
@@ -13,7 +14,13 @@ export const metadata: Metadata = {
 };
 
 const About = () => {
-  return <div>about</div>;
+  return (
+    <>
+      <div>about</div>;
+      <UserSearchInput />
+      {/* client component placed inside server component */}
+    </>
+  );
 };
 
 export default About;
