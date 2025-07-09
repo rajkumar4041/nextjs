@@ -11,6 +11,7 @@ const links = [
   { href: '/contact', label: 'Contact' },
   { href: '/lectures', label: 'Lectures' },
   { href: '/products', label: 'Products' },
+  { href: '/dbProducts', label: 'DB Products' },
   { href: '/charts', label: 'Charts' },
   { href: '/blogs', label: 'Blogs' },
 ];
