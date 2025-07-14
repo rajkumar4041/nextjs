@@ -26,11 +26,7 @@ export const getProductById = async (id: number) => {
   return await prisma.product.findUnique({ where: { id } });
 };
 
-export const createProduct = async (data: {
-  title: string;
-  price: number;
-  description?: string;
-}) => {
+export const AddProduct = async (data: { title: string; price: number; description?: string }) => {
   return await prisma.product.create({ data });
 };
 
