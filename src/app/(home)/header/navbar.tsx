@@ -8,10 +8,11 @@ import { usePathname } from 'next/navigation';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
+  { href: '/dbProducts', label: 'DB Products' },
+  { href: '/redux', label: 'Redux' },
   { href: '/contact', label: 'Contact' },
   { href: '/lectures', label: 'Lectures' },
   { href: '/products', label: 'Products' },
-  { href: '/dbProducts', label: 'DB Products' },
   { href: '/charts', label: 'Charts' },
   { href: '/blogs', label: 'Blogs' },
 ];
