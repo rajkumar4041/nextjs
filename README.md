@@ -12,12 +12,19 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+# Prisma Setup
+open terminal and Run below Commands
+1. npx prisma init --datasource-provider sqlite <- db name as per your convenience
+2. npx prisma migrate dev --name init
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 # Implemented Feat
+
 ## Routing
+
 - nested routing
 - dynamic routing
 - nested dynamic routing
@@ -30,4 +37,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## group routing
 
 ## metaDeta for SEO
-
