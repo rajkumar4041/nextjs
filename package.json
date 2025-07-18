@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "prisma generate",
+      "postinstall": "prisma generate && prisma migrate deploy",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "prisma": "^5.x",
     "@clerk/nextjs": "^6.25.4",
     "@prisma/client": "6.11.1",
     "@reduxjs/toolkit": "^2.8.2",

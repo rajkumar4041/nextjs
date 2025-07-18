@@ -1,6 +1,4 @@
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 
 ---
 
@@ -35,6 +33,9 @@ Open terminal and run the following commands:
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+Or visit the deployed site:  
+[https://nextjs-gg4th3r2d-rajkumar-rathods-projects.vercel.app/](https://nextjs-gg4th3r2d-rajkumar-rathods-projects.vercel.app/)
+
 ---
 
 ## 🏆 Implemented Features & Concepts (Showcased)
@@ -67,6 +68,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Middleware & Edge:** Run code at the edge for authentication, redirects, etc. using `middleware.ts`.
 
 ### UI & Styling
+
 - **Built-in CSS & Styling:** CSS Modules, Tailwind CSS, or CSS-in-JS.
 - **Image Optimization:** Use the `next/image` component for optimized and responsive images.
 - **Custom Buttons & Transitions:** Interactive UI elements with Tailwind CSS.
