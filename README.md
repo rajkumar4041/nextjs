@@ -16,6 +16,11 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+# Prisma Setup
+open terminal and Run below Commands
+1. npx prisma init --datasource-provider sqlite <- db name as per your convenience
+2. npx prisma migrate dev --name init
 ```
 
 ### Prisma Setup
