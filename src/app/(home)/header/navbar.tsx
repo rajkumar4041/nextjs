@@ -1,20 +1,28 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  UserButton,
+} from "@clerk/nextjs";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/dbProducts', label: 'DB Products' },
-  { href: '/redux', label: 'Redux' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/lectures', label: 'Lectures' },
-  { href: '/products', label: 'Products' },
-  { href: '/charts', label: 'Charts' },
-  { href: '/blogs', label: 'Blogs' },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/protected-route", label: "Protected Route" },
+  { href: "/dbProducts", label: "DB Products" },
+  { href: "/redux", label: "Redux" },
+  { href: "/contact", label: "Contact" },
+  { href: "/lectures", label: "Lectures" },
+  { href: "/products", label: "Products" },
+  { href: "/charts", label: "Charts" },
+  { href: "/blogs", label: "Blogs" },
 ];
 
 const Navbar = () => {
@@ -53,7 +61,9 @@ const Nav = () => {
     <nav className="bg-white border-gray-200 dark:bg-gray-900 w-full h-[100%]">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        <Link
+          href="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse">
           <Image
             src="https://flowbite.com/docs/images/logo.svg"
             alt="Next js"
@@ -68,12 +78,25 @@ const Nav = () => {
         {/* Right section: Avatar and Hamburger */}
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           {/* User Avatar */}
-          <button
+          <div className="flex gap-1 mr-2 items-center justify-center">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-400 transition">
+                  LogIn
+                </button>
+              </SignInButton>
+            </SignedOut>
+
+            <SignedIn>
+              <SignOutButton />
+            </SignedIn>
+            <UserButton />
+          </div>
+          {/* <button
             onClick={() => setDropdownOpen(!dropdownOpen)}
             type="button"
             className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-            aria-expanded={dropdownOpen}
-          >
+            aria-expanded={dropdownOpen}>
             <span className="sr-only">Open user menu</span>
             <Image
               src="/docs/images/people/profile-picture-3.jpg"
@@ -82,16 +105,17 @@ const Nav = () => {
               height={32}
               className="w-8 h-8 rounded-full"
             />
-          </button>
+          </button> */}
 
           {/* Dropdown menu */}
           {dropdownOpen && (
             <div
               className="z-50 absolute top-16 right-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-              id="user-dropdown"
-            >
+              id="user-dropdown">
               <div className="px-4 py-3">
-                <span className="block text-sm text-gray-900 dark:text-white">Rajkumar Rathod</span>
+                <span className="block text-sm text-gray-900 dark:text-white">
+                  Rajkumar Rathod
+                </span>
                 <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
                   rajkumarrathod414@gmail.com
                 </span>
@@ -101,8 +125,7 @@ const Nav = () => {
                   <li key={idx}>
                     <Link
                       href={item.href}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">
                       {item.label}
                     </Link>
                   </li>
@@ -112,35 +135,36 @@ const Nav = () => {
           )}
 
           {/* Hamburger menu button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
-            aria-expanded={menuOpen}
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 17 14"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+          <div className="flex gap-1">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+              aria-expanded={menuOpen}>
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 17 14"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Menu Items */}
         <div
-          className={`${menuOpen ? 'flex' : 'hidden'} items-center justify-between w-full md:flex md:w-auto md:order-1`}
-          id="navbar-user"
-        >
+          className={`${
+            menuOpen ? "flex" : "hidden"
+          } items-center justify-between w-full md:flex md:w-auto md:order-1`}
+          id="navbar-user">
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             {links.map((item, idx) => (
               <li key={idx}>
@@ -148,10 +172,9 @@ const Nav = () => {
                   href={item.href}
                   className={`block py-2 px-3 rounded-sm ${
                     item.href === pathName
-                      ? 'text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500'
-                      : 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white'
-                  } md:p-0`}
-                >
+                      ? "text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white"
+                  } md:p-0`}>
                   {item.label}
                 </Link>
               </li>
