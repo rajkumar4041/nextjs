@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "preinstall": "echo Running preinstall",
-    "postinstall": "prisma generate",
+    "postinstall": "npx prisma init --datasource-provider sqlite && npx prisma migrate dev --name init",
     "dev": "next dev --turbopack",
-    "vercel-build": "pnpm prisma generate && next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
